@@ -81,18 +81,22 @@ def runGirvanNewman(G, Orig_deg, m_):
     while True:    
         CmtyGirvanNewmanStep(G)
         Q = _GirvanNewmanGetModularity(G, Orig_deg, m_);
-        print("Modularity of decomposed G:", Q)
+        if(_DEBUG_):
+            print("Modularity of decomposed G:", Q)
         if Q > BestQ:
             BestQ = Q
             Bestcomps = list(nx.connected_components(G))    #Best Split
-            print("Components:", Bestcomps)
+            if(_DEBUG_):
+                print("Components:", Bestcomps)
         if G.number_of_edges() == 0:
             break
     if BestQ > 0.0:
-        print("Max modularity (Q):", BestQ)
-        print("Graph communities:", Bestcomps)
+        if(_DEBUG_):
+            print("Max modularity (Q):", BestQ)
+            print("Graph communities:", Bestcomps)
     else:
-        print("Max modularity (Q):", BestQ)
+        if(_DEBUG_):
+            print("Max modularity (Q):", BestQ)
 
 
 def main(argv):
