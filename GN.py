@@ -15,7 +15,7 @@
 '''
 import networkx as nx
 import numpy as np
-import ete3
+from ete3 import Tree
 
 import cmty
 
