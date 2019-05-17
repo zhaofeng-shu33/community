@@ -31,6 +31,7 @@ class GN:
             G_outer: nx.Graph like object
             returns the partition
         '''    
+        self.tree = Tree()
         self.G = G_outer.copy()
         G = G_outer.copy()# copy the graph
         n = G.number_of_nodes()    #|V|
