@@ -26,7 +26,7 @@ class GN:
         self.tree = Tree()
         self.tree_depth = 0
 
-    def fit(self, G_outer):
+    def fit(self, G_outer, initialize_tree = True):
         '''
             G_outer: nx.Graph like object
             returns the partition
@@ -48,7 +48,8 @@ class GN:
 
         #run Newman alg
         self.runGirvanNewman() 
-        return self  
+        if(initialize_tree and self.tree.is_leaf()):
+            self._get_hierachical_tree() 
         
     def runGirvanNewman(self):
         #let's find the best split of the graph
