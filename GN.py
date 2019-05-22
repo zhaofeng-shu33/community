@@ -49,7 +49,7 @@ class GN:
 
         #run Newman alg
         self.runGirvanNewman() 
-        if(initialize_tree and self.tree.is_leaf()):
+        if(initialize_tree):
             self._get_hierachical_tree() 
         
     def runGirvanNewman(self):
