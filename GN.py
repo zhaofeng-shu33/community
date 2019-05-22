@@ -21,17 +21,20 @@ import cmty
 
 class GN:
     def __init__(self):
+        self.reinit()
+        
+    def reinit(self):
         self.partition_num_list = []
         self.partition_list = []
         self.tree = Tree()
         self.tree_depth = 0
-
+        
     def fit(self, G_outer, initialize_tree = True):
         '''
             G_outer: nx.Graph like object
             returns the partition
         '''    
-        self.tree = Tree()
+        self.reinit()
         self.G = G_outer.copy()
         G = G_outer.copy()# copy the graph
         n = G.number_of_nodes()    #|V|
