@@ -4,7 +4,7 @@ import math
 import csv
 import random as rand
 import sys
-
+    
 _DEBUG_ = False
 
 # This method reads the graph structure from the input file

@@ -17,7 +17,10 @@ import networkx as nx
 import numpy as np
 from ete3 import Tree
 
-import cmty
+try:
+    from cmty import cmty # cython version first
+except ImportError:
+    import cmty
 
 class GN:
     def __init__(self):
