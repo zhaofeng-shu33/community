@@ -2,10 +2,10 @@ Detecting Communities in Weighted Graphs
 ========================================
 [![Build Status](https://api.travis-ci.com/zhaofeng-shu33/community.svg?branch=master)](https://travis-ci.com/zhaofeng-shu33/community/)
 
-Implemented in pure Python
+Implemented in pure Python. This repo is not maintained any more since we have much faster implementation in C and python binding. See [Girvan-Newman](https://github.com/zhaofeng-shu33/Girvan-Newman) for detail.
 
 ## Input
- 
+
 A weighted graph G. See graph.txt file as a sample for the input graph format. It's a CSV file where each line has the following format: 
 
 	u,v,w 
@@ -40,7 +40,7 @@ If you have any question about the code or you want to report a bug, please cont
 
     Copyright (c) 2013 Black Square Media Ltd. All rights reserved.
     (The MIT License)
-
+    
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     'Software'), to deal in the Software without restriction, including
@@ -48,10 +48,10 @@ If you have any question about the code or you want to report a bug, please cont
     distribute, sublicense, and/or sell copies of the Software, and to
     permit persons to whom the Software is furnished to do so, subject to
     the following conditions:
-
+    
     The above copyright notice and this permission notice shall be
     included in all copies or substantial portions of the Software.
-
+    
     THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
