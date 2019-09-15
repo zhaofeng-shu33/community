@@ -1,17 +1,5 @@
 '''
     wrapper of Girvan-Newman community detection algorithm
-    >>> import networkx as nx
-    >>> G=nx.Graph()
-    >>> G.add_edge(1,3)
-    >>> G.add_edge(1,2)
-    >>> G.add_edge(3,2)
-    >>> G.add_edge(4,5)
-    >>> G.add_edge(4,6)
-    >>> G.add_edge(5,6)
-    >>> G.add_edge(1,6)
-    >>> from GN import GN
-    >>> GN().fit(G).Bestcomps
-    [{1, 2, 3}, {4, 5, 6}]    
 '''
 import networkx as nx
 import numpy as np
@@ -57,14 +45,15 @@ class GN:
         self.runGirvanNewman() 
         if(initialize_tree):
             self._get_hierarchical_tree()
+        return self
         
     def runGirvanNewman(self):
         # let's find the best split of the graph
         BestQ = 0.0
         Q = 0.0
-        # self.partition_num_list.append(1)
-        # nvertices = len(self.G.nodes)
-        # self.partition_list.append([set(i for i in range(nvertices))])
+        self.partition_num_list.append(1)
+        nvertices = len(self.G.nodes)
+        self.partition_list.append([set(i for i in range(nvertices))])
         while True:    
             cmty.CmtyGirvanNewmanStep(self.G)
             partition = list(nx.connected_components(self.G))
@@ -97,6 +86,7 @@ class GN:
         return 0
 
     def _add_node(self, root, node_list, num_index):
+
         label_list = self.get_category(self.partition_num_list[num_index])
         cat_list = []
         for i in node_list:
