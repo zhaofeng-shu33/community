@@ -56,12 +56,15 @@ class GN:
         # run Newman alg
         self.runGirvanNewman() 
         if(initialize_tree):
-            self._get_hierachical_tree() 
+            self._get_hierarchical_tree()
         
     def runGirvanNewman(self):
         # let's find the best split of the graph
         BestQ = 0.0
         Q = 0.0
+        # self.partition_num_list.append(1)
+        # nvertices = len(self.G.nodes)
+        # self.partition_list.append([set(i for i in range(nvertices))])
         while True:    
             cmty.CmtyGirvanNewmanStep(self.G)
             partition = list(nx.connected_components(self.G))

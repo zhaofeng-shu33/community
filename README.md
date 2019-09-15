@@ -1,5 +1,6 @@
 Detecting Communities in Weighted Graphs
 ========================================
+Implemented in pure Python
 
 ## Input
  
