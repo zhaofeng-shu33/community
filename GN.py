@@ -41,25 +41,25 @@ class GN:
         self.G = G_outer.copy()
         G = G_outer.copy()# copy the graph
         n = G.number_of_nodes()    #|V|
-        A = nx.adj_matrix(G)    #adjacenct matrix
+        A = nx.adj_matrix(G)    # adjacenct matrix
 
-        m_ = 0.0    #the weighted version for number of edges
+        m_ = 0.0    # the weighted version for number of edges
         for i in range(0,n):
             for j in range(0,n):
                 m_ += A[i,j]
         self.m_ = m_/2.0
 
-        #calculate the weighted degree for each node
+        # calculate the weighted degree for each node
         Orig_deg = {}
         self.Orig_deg = cmty.UpdateDeg(A, G.nodes())
 
-        #run Newman alg
+        # run Newman alg
         self.runGirvanNewman() 
         if(initialize_tree):
             self._get_hierachical_tree() 
         
     def runGirvanNewman(self):
-        #let's find the best split of the graph
+        # let's find the best split of the graph
         BestQ = 0.0
         Q = 0.0
         while True:    
@@ -70,7 +70,7 @@ class GN:
             Q = cmty._GirvanNewmanGetModularity(self.G, self.Orig_deg, self.m_)
             if Q > BestQ:
                 BestQ = Q
-                Bestcomps = partition    #Best Split
+                Bestcomps = partition    # Best Split
             if self.G.number_of_edges() == 0:
                 break
         if BestQ > 0.0:
@@ -113,7 +113,7 @@ class GN:
             if(len(node_list_i)>1):
                 self._add_node(root_i, node_list_i, num_index+1)
                 
-    def _get_hierachical_tree(self):
+    def _get_hierarchical_tree(self):
         max_num = self.partition_num_list[-1]
         node_list = [ i for i in range(0, max_num)]
         self._add_node(self.tree, node_list, 1)
@@ -128,7 +128,7 @@ class GN:
             
     def get_tree_depth(self):
         if(self.tree.is_leaf()):
-            self._get_hierachical_tree()
+            self._get_hierarchical_tree()
         if(self.tree_depth != 0):
             return self.tree_depth
         self._set_tree_depth(self.tree, 0)
