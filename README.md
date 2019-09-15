@@ -1,5 +1,8 @@
 Detecting Communities in Weighted Graphs
 ========================================
+[![Build Status](https://api.travis-ci.com/zhaofeng-shu33/community.svg?branch=master)](https://travis-ci.com/zhaofeng-shu33/community/)
+
+Implemented in pure Python
 
 ## Input
  
