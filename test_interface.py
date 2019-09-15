@@ -11,8 +11,11 @@ class TestGN(unittest.TestCase):
         G.add_edge(3, 4)
         G.add_edge(3, 5)
         G.add_edge(4, 5)
-        G.add_edge(0, 5)     
-        self.assertEqual(GN().fit(G).Bestcomps,[{0, 1, 2}, {3, 4, 5}])
+        G.add_edge(0, 5) 
+        gn = GN()
+        gn.fit(G)
+        self.assertEqual(gn.Bestcomps, [{0, 1, 2}, {3, 4, 5}])
+        print(gn.tree)
 
 if __name__ == '__main__':
     unittest.main()
